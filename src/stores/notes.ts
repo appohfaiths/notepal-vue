@@ -7,6 +7,11 @@ export const useNotesStore = defineStore('notes', () => {
   const isLoading = ref<NoteState["isLoading"]>(false)
   const error = ref<NoteState["error"]>("")
 
+  function viewNote(id: string) {
+    const note = notes.value.find(note => note.note_id === id)
+    return note;
+  }
+
   async function getNotes() {
     try {
       // Fetch notes from an API
@@ -80,5 +85,5 @@ export const useNotesStore = defineStore('notes', () => {
     notes.value = []
   }
 
-  return { notes, isLoading, error, getNotes, addNote, updateNote, deleteNote, $reset }
+  return { notes, isLoading, error, getNotes, addNote, updateNote, deleteNote, viewNote, $reset }
 })
