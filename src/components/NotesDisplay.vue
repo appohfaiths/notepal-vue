@@ -14,7 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section>
+    <section class="bg-red-500">
         <ul>
             <PreviewCard v-for="note in notes" :key="note.note_id" :note="note" />
         </ul>
