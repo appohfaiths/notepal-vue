@@ -1,17 +1,11 @@
 <script setup lang="ts">
+import type {CustomButtonProps} from '@/types';
 
-const props = defineProps({
-  buttonAction: {
-    type: function() {
-      return Function as () => void;
-    },
-    required: true,
-  },
-});
+defineProps<CustomButtonProps>();
 </script>
 
 <template>
-  <button class="button" @click="buttonAction">
+  <button class="button" @click="buttonAction($event)">
     <slot></slot>
   </button>
 </template>

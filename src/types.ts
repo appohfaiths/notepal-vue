@@ -12,3 +12,7 @@ export interface NoteState {
     isLoading: boolean;
     error: string | null;
 }
+
+export interface CustomButtonProps {
+  buttonAction: (event: MouseEvent) => void;
+}

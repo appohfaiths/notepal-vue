@@ -9,7 +9,11 @@ export const useNotesStore = defineStore('notes', () => {
 
   function viewNote(id: string) {
     const note = notes.value.find(note => note.note_id === id)
-    return note;
+    if (note) {
+      return note;
+    } else {
+      return null;
+    }
   }
 
   async function getNotes() {

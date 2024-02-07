@@ -13,14 +13,27 @@ const { getNotes } = store;
 onMounted(() => {
   getNotes()
 })
+
+watch(notes, (newNotes, notes) => {
+  if (newNotes.length > (notes?.length ?? 0)) {
+    getNotes()
+  }
+})
 </script>
 
 <template>
-    <section class="bg-red-500">
+    <section class="display">
         <ul>
             <PreviewCard v-for="note in notes" :key="note.note_id" :note="note" />
         </ul>
     </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.display {
+  border: 1px solid red;
+  margin: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+</style>
