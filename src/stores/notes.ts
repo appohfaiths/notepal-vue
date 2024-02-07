@@ -80,5 +80,5 @@ export const useNotesStore = defineStore('notes', () => {
     notes.value = []
   }
 
-  return { notes, getNotes, addNote, updateNote, deleteNote, $reset }
+  return { notes, isLoading, error, getNotes, addNote, updateNote, deleteNote, $reset }
 })
