@@ -29,7 +29,7 @@ export const useNotesStore = defineStore('notes', () => {
   async function addNote(note: Note) {
     try {
       const response = await fetch('https://zfcq5cgd7np6zqyi3g5xint2yi0fvbbq.lambda-url.us-east-1.on.aws/create-note', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -46,7 +46,7 @@ export const useNotesStore = defineStore('notes', () => {
 
   async function updateNote(note: Note) {
     try {
-      const response = await fetch('https://zfcq5cgd7np6zqyi3g5xint2yi0fvbbq.lambda-url.us-east-1.on.aws/create-note', {
+      const response = await fetch('https://zfcq5cgd7np6zqyi3g5xint2yi0fvbbq.lambda-url.us-east-1.on.aws/update-note', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
