@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia';
 
 const store = useNotesStore();
 const { notes } = storeToRefs(store);
-const { $reset, getNotes } = store;
+const { $reset, getNotes, deleteNote } = store;
 // store.$patch({
 //   notes: [
 //     { id: 1, text: 'Learn Vue 3' },
@@ -21,6 +21,7 @@ const { $reset, getNotes } = store;
     <ul>
       <li v-for="note in notes" :key="note.note_id" >
         {{ note.title }}
+        <button @click="deleteNote(note.note_id)">delete note</button>
       </li>
     </ul>
     <button @click="getNotes">Get notes</button>
