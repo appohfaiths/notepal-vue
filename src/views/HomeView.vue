@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { useNotesStore } from '@/stores/notes';
 import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
 
 const store = useNotesStore();
 const { notes } = storeToRefs(store);
 const { $reset, getNotes, deleteNote } = store;
 // store.$patch({
 //   notes: [
-//     { id: 1, text: 'Learn Vue 3' },
-//     { id: 2, text: 'Learn Pinia' },
-//     { id: 3, text: 'Build a project' },
+//     { id: "1", text: 'Learn Vue 3' },
+//     { id: "2", text: 'Learn Pinia' },
+//     { id: "3", text: 'Build a project' },
 //   ],
 // });
+
+onMounted(() => {
+  getNotes()
+})
 
 </script>
 
