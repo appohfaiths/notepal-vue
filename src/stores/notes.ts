@@ -1,13 +1,11 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { Note } from '@/types'
+import type { Note, NoteState } from '@/types'
 
 export const useNotesStore = defineStore('notes', () => {
-  const notes = ref([
-    { note_id: "1", title: 'Note 1' },
-    { note_id: "2", title: 'Note 2' },
-    { note_id: "3", title: 'Note 3' }
-  ])
+  const notes = ref<NoteState["notes"]>([])
+  const isLoading = ref<NoteState["isLoading"]>(false)
+  const error = ref<NoteState["error"]>("")
 
   async function getNotes() {
     try {
