@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useNotesStore } from '@/stores/notes';
 import { storeToRefs } from 'pinia';
-import { onMounted } from 'vue';
+import { onMounted, watch } from 'vue';
 import PreviewCard from './PreviewCard.vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const store = useNotesStore();
 const { notes } = storeToRefs(store);
 const { getNotes } = store;

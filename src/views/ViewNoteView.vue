@@ -32,7 +32,7 @@ const props = defineProps({
     <article v-if="note">
       <h2>{{ note?.title }}</h2>
       <p>{{ note?.body }}</p>
-      <button @click="deleteNote('asdf')">delete note</button>
+      <button @click="deleteNote(note.note_id), router.push('/')">delete note</button>
     </article>
     <div v-else>
         <p>Loading</p>
